@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  
+ 
+}
+.balance{
+  text-align: start;
+  margin: 20px;
+  padding: 10px;
+  background-color: blueviolet;
+  width: 20%;
+  border-radius: 10px;
+}
