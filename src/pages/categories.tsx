@@ -1,11 +1,11 @@
 import React, {useState, useCallback, useEffect} from 'react'
-import { Category } from '../../redux-store/transaction'
+import { Category } from '../redux-store/transaction'
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { Categorystate } from '../../types/types';
-import { addCategory } from '../../redux-store/actionCreators';
-import CategoryForm from './newCategories';
-import CategoriesList from './categoriesList';
+import { Categorystate } from '../types/types';
+import { addCategory } from '../redux-store/actionCreators';
+import CategoryForm from '../components/Categories/newCategories';
+import CategoriesList from '../components/Categories/categoriesList';
 
 const Categories = () => {
 
@@ -87,7 +87,7 @@ const Categories = () => {
 
     return (
         <div>
-            <h1>New Categories</h1>
+            
             <CategoryForm categoryDetails={category}
           callBackcategory={savecategoryDetails}/>
           <CategoriesList categoryList = {categoriesList}/>

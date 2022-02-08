@@ -1,10 +1,10 @@
 import React, { MouseEventHandler } from "react";
 import { useEffect, useState } from "react";
-import { Transaction } from "../redux-store/transaction";
+import { Transaction } from "../../redux-store/transaction";
 import "../components/newTransaction.css";
 import { useCallback } from "react";
-import TransactionList from "../components/transactionList";
-import Search from "../components/Search";
+import TransactionList from "../../components/Transactions/transactionList";
+import Search from "./Search";
 import { useMemo } from "react";
 // import TableHeader from "../components/tableHeader";
 

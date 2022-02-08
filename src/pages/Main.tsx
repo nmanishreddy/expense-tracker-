@@ -2,10 +2,10 @@ import React from "react";
 
 import "../App.css";
 
-import TransactionForm from "../components/newTransaction";
+import TransactionForm from "../components/Transactions/newTransaction";
 import { Transaction } from "../redux-store/transaction";
 import { useCallback, useEffect, useState } from "react";
-import TransactionList from "../components/transactionList";
+import TransactionList from "../components/Transactions/transactionList";
 
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";

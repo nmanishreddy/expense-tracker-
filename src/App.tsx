@@ -10,9 +10,9 @@ import { useState } from 'react';
 import Main from './pages/Main'
 import React from 'react'
 import Headerr from './pages/header'
-import History from './pages/history'
-import NewCategory from './pages/Categories/newCategories';
-import Categories from './pages/Categories/categories';
+import History from './pages/TransHistory/history'
+import NewCategory from './components/Categories/newCategories';
+import Categories from './pages/categories';
 
 // import { IconName } from "react-icons/bi";  BiEditAlt BiEdit
 

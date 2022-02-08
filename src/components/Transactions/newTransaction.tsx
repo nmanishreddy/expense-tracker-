@@ -6,7 +6,7 @@ import {
   transactionType,
   transactionCategory,
   expenseCategory,
-} from "../redux-store/transaction";
+} from "../../redux-store/transaction";
 
 type Props = {
   transactionDetails: Transaction;
