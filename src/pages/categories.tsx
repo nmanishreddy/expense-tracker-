@@ -23,24 +23,10 @@ const Categories = () => {
       return;
     }
 
-    // using react redux
-    // if (categoryDetails.id !== 0) {
-    //   updateTransactionInStore(categoryDetails);
-    // } else {
+    
       addTransactionToStore(categoryDetails);
     
   };
-
-//   const updateTransactionDetails = (transactionDetails: Transaction) => {
-//     setTransaction(
-//       (transaction: Transaction) => (transaction = transactionDetails)
-//     );
-//   };
-
-//   const removeTransactionDetails = (transactionDetails: Transaction) => {
-//     // using react redux
-//     deleteTransactionFromStore(transactionDetails);
-//   };
 
   /**
    * Redux implementation
@@ -50,10 +36,7 @@ const Categories = () => {
     shallowEqual
   );
 
-  // useSelector(
-  //   (state: TransactionState) => state.transactions,
-  //   shallowEqual
-  // );
+  
   const [categoriesList, setCategoriesList] = useState<Category[]>(
     categoriesListArray
   );
@@ -66,15 +49,7 @@ const Categories = () => {
     [dispatch]
   );
 
-//   const updatecategoryInStore: any = useCallback(
-//     (category: Category) => dispatch(updateCategory(category)),
-//     [dispatch]
-//   );
 
-//   const deleteTransactionFromStore: any = useCallback(
-//     (transaction: Transaction) => dispatch(removeTransaction(transaction)),
-//     [dispatch]
-//   );
 
   useEffect(() => {
     setCategoriesList(categoriesListArray);
