@@ -5,7 +5,7 @@ import {Category} from './transaction'
 import { CategoryAction, CDispatchType } from "../types/types";
 
 
-const addCategory = (category: Category) => {
+export const addCategory = (category: Category) => {
     const action: CategoryAction = {
         type : actionTypes.ADD_CATEGORY,
         category

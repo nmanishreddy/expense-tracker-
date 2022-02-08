@@ -13,7 +13,7 @@ type Props = {
   };
   
 
-const NewCategory = (props: Props) => {
+const CategoryForm = (props: Props) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
@@ -35,8 +35,8 @@ const NewCategory = (props: Props) => {
               [key]: key !== "id" ? "" : 0,
             }));
           }
-        //   setEnteredNameTouched(false)
-        //   setEnteredAmountTouched(false)
+          setEnteredNameTouched(false)
+        
         };
     
         if (Number(category.id) !== 0) {
@@ -99,7 +99,7 @@ const NewCategory = (props: Props) => {
       return(
         <div  className="new-expense">
         {!isEditing && (
-          <button onClick={startEditingHandler}>Add/Edit Transaction</button>
+          <button onClick={startEditingHandler}>Add Category</button>
         )}
         {isEditing && (
         <form onSubmit={handleSubmit} onReset={handleReset}>
@@ -152,4 +152,4 @@ const NewCategory = (props: Props) => {
 }
 
 
-export default NewCategory;
+export default CategoryForm;

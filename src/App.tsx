@@ -36,8 +36,8 @@ const Header: React.FC = (props) => {
     
     <BrowserRouter>
         <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/History' element={<History transactionList={transactionsList}/>}/>
+        {/* <Route path='/' element={<Main/>}/>
+        <Route path='/History' element={<History transactionList={transactionsList}/>}/> */}
         <Route path='/AddNewCategories' element={<Categories />}/>
         </Routes> 
 

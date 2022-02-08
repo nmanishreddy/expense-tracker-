@@ -7,13 +7,13 @@ const initialTransactions: Categorystate = {
     categories : [
         {
             id:1,
-            name: 'newcategory1',
-            type: 'income'
+            name: 'Groceries',
+            type: 'expense'
         },
         {
             id:2,
-            name: 'newcategory2',
-            type: 'expense'
+            name: 'Fiver',
+            type: 'income'
         }
     ]
 

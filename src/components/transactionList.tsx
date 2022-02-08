@@ -33,6 +33,7 @@ const TransactionList = (props: Props) => {
     },
     {
       Header: 'Actions',
+      accessor: 'actions'
 
     }
     

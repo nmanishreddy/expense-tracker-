@@ -10,7 +10,7 @@ import categoryReducer from "./categoryReducer"
 
 
 
-const store  = createStore(rootReducer, applyMiddleware(thunk))
+const store  = createStore(categoryReducer, applyMiddleware(thunk))
 
  export const persistor = persistStore(store)
 
