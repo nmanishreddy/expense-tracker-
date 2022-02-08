@@ -1,31 +1,26 @@
-import React, {useState, useCallback, useEffect} from 'react'
-import { Category } from '../redux-store/transaction'
+import React, { useState, useCallback, useEffect } from "react";
+import { Category } from "../redux-store/transaction";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { Categorystate } from '../types/types';
-import { addCategory } from '../redux-store/actionCreators';
-import CategoryForm from '../components/Categories/newCategories';
-import CategoriesList from '../components/Categories/categoriesList';
+import { Categorystate } from "../types/types";
+import { addCategory } from "../redux-store/actionCreators";
+import CategoryForm from "../components/Categories/newCategories";
+import CategoriesList from "../components/Categories/categoriesList";
 
 const Categories = () => {
+  const defaultCategory: Category = {
+    id: 0,
+    name: "",
+    type: "",
+  };
+  const [category, setcategory] = useState<Category>(defaultCategory);
 
-    const defaultCategory: Category = {
-        id: 0,
-        name: "",
-        type: "",
-    }
-    const [category, setcategory] =
-    useState<Category>(defaultCategory);
-
-    
   const savecategoryDetails = (categoryDetails: Category) => {
-    if (!categoryDetails.name ) {
+    if (!categoryDetails.name) {
       return;
     }
 
-    
-      addTransactionToStore(categoryDetails);
-    
+    addTransactionToStore(categoryDetails);
   };
 
   /**
@@ -36,10 +31,8 @@ const Categories = () => {
     shallowEqual
   );
 
-  
-  const [categoriesList, setCategoriesList] = useState<Category[]>(
-    categoriesListArray
-  );
+  const [categoriesList, setCategoriesList] =
+    useState<Category[]>(categoriesListArray);
 
   const dispatch: Dispatch<any> = useDispatch();
 
@@ -49,25 +42,19 @@ const Categories = () => {
     [dispatch]
   );
 
-
-
   useEffect(() => {
     setCategoriesList(categoriesListArray);
   }, [categoriesListArray]);
 
+  return (
+    <div>
+      <CategoryForm
+        categoryDetails={category}
+        callBackcategory={savecategoryDetails}
+      />
+      <CategoriesList categoryList={categoriesList} />
+    </div>
+  );
+};
 
-  
-    
-
-
-    return (
-        <div>
-            
-            <CategoryForm categoryDetails={category}
-          callBackcategory={savecategoryDetails}/>
-          <CategoriesList categoryList = {categoriesList}/>
-        </div>
-    )
-}
-
-export default Categories
+export default Categories;

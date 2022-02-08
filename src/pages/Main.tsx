@@ -18,7 +18,6 @@ import {
 } from "../redux-store/actionCreators";
 
 const Main = () => {
-    
   const defaultTransaction: Transaction = {
     id: 0,
     name: "",
@@ -96,41 +95,32 @@ const Main = () => {
     setTransactionsList(transactionsListArray);
   }, [transactionsListArray]);
 
+  const incomeList = transactionsList?.filter(function (transaction) {
+    return transaction.type === "income";
+  });
 
-  
-    const incomeList = transactionsList?.filter(function(transaction){
-      return transaction.type === 'income';
-  }
-  )
-  
-  const expenseList = transactionsList?.filter(function(transaction){
-      return transaction.type === 'expense';
-  }
-  )
-  
-    const income = incomeList.reduce(function(acc,transaction){
-      return acc + Number(transaction.amount) ;
-    },0)
-    const expense = expenseList.reduce(function(acc,transaction){
-      return acc + Number(transaction.amount);
-    },0)
-    
-    
-  const balance = income-expense
-  
-  
+  const expenseList = transactionsList?.filter(function (transaction) {
+    return transaction.type === "expense";
+  });
+
+  const income = incomeList.reduce(function (acc, transaction) {
+    return acc + Number(transaction.amount);
+  }, 0);
+  const expense = expenseList.reduce(function (acc, transaction) {
+    return acc + Number(transaction.amount);
+  }, 0);
+
+  const balance = income - expense;
 
   return (
     <>
       <div className="App">
         <div>
-
-        
-      <h2 className="balance">Current Balance: {balance} </h2>
-        <TransactionForm
-          transactionDetails={transaction}
-          callBackTransaction={saveTransactionDetails}
-        ></TransactionForm>
+          <h2 className="balance">Current Balance: {balance} </h2>
+          <TransactionForm
+            transactionDetails={transaction}
+            callBackTransaction={saveTransactionDetails}
+          ></TransactionForm>
         </div>
         <hr></hr>
         <h2 className="text-center">Transaction List</h2>
