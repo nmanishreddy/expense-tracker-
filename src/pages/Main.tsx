@@ -108,10 +108,10 @@ const Main = () => {
   }
   )
   
-    const income = incomeList.reduce(function(acc,transaction){
+    const income = incomeList?.reduce(function(acc,transaction){
       return acc + Number(transaction.amount) ;
     },0)
-    const expense = expenseList.reduce(function(acc,transaction){
+    const expense = expenseList?.reduce(function(acc,transaction){
       return acc + Number(transaction.amount);
     },0)
     
