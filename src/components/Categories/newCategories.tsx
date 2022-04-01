@@ -1,9 +1,15 @@
 import React from "react";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+<<<<<<< HEAD
 import { Button } from "react-bootstrap";
 import "../../components/newTransaction.css";
 import { Category, transactionType } from "../../redux-store/transaction";
 import './categories.css'
+=======
+import "../../components/newTransaction.css";
+import { Category, transactionType } from "../../redux-store/transaction";
+
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 type Props = {
   categoryDetails: Category;
 
@@ -91,10 +97,14 @@ const CategoryForm = (props: Props) => {
   return (
     <div className="new-expense">
       {!isEditing && (
+<<<<<<< HEAD
         <div className="d-flex justify-content-center">
           <button className="category-button " onClick={startEditingHandler}>Add Category</button>
           </div>
         
+=======
+        <button onClick={startEditingHandler}>Add Category</button>
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
       )}
       {isEditing && (
         <form onSubmit={handleSubmit} onReset={handleReset}>
@@ -125,6 +135,7 @@ const CategoryForm = (props: Props) => {
               </select>
             </div>
           </div>
+<<<<<<< HEAD
           <div className="d-flex justify-content-end mt-2">
           <Button type="submit" size="lg">
               Submit
@@ -134,6 +145,10 @@ const CategoryForm = (props: Props) => {
             </Button>
             
           </div>
+=======
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
         </form>
       )}
     </div>

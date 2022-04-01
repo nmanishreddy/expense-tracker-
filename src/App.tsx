@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Transaction } from "./redux-store/transaction";
 import { shallowEqual, useSelector } from "react-redux";
@@ -12,6 +13,22 @@ import "react-toastify/dist/ReactToastify.css";
 import AddEdit from "./pages/AddEdit/AddEdit";
 import View from "./pages/AddEdit/view";
 import Change from "./pages/Currency/changeCurrency";
+=======
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Category, Transaction } from "./redux-store/transaction";
+import { shallowEqual, useSelector } from "react-redux";
+import { TransactionState, Categorystate } from "./types/types";
+import { useState } from "react";
+
+import Main from "./pages/Main";
+import React from "react";
+import Headerr from "./pages/header";
+import History from "./pages/TransHistory/history";
+import NewCategory from "./components/Categories/newCategories";
+import Categories from "./pages/categories";
+
+// import { IconName } from "react-icons/bi";  BiEditAlt BiEdit
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 
 const Header: React.FC = (props) => {
   const transactionsListArray: Transaction[] = useSelector(
@@ -26,6 +43,7 @@ const Header: React.FC = (props) => {
     setTransactionsList(transactionsListArray);
   }, [transactionsListArray]);
 
+<<<<<<< HEAD
   // const categoriesListarray: Category[] = useSelector(
   //   (state: Categorystate) => state.categories,
   //   shallowEqual
@@ -51,6 +69,24 @@ const Header: React.FC = (props) => {
           <Route path={`/AddEdit/:id`} element={<AddEdit />} />
           <Route path={`/View/:id`} element={<View />} />
           <Route path="/curr" element={<Change />} />
+=======
+  const categoriesListarray: Category[] = useSelector(
+    (state: Categorystate) => state.categories,
+    shallowEqual
+  );
+  const [categoriesList, setCategoriesList] =
+    useState<Category[]>(categoriesListarray);
+
+  return (
+    <div>
+      <Headerr />
+
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path='/' element={<Main/>}/>
+        <Route path='/History' element={<History transactionList={transactionsList}/>}/> */}
+          <Route path="/AddNewCategories" element={<Categories />} />
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
         </Routes>
       </BrowserRouter>
     </div>
@@ -58,6 +94,7 @@ const Header: React.FC = (props) => {
 };
 
 export default Header;
+<<<<<<< HEAD
 
 // const Header: React.FC = () => {
 //   return (
@@ -104,3 +141,5 @@ export default Header;
 // }
 
 // export default Header
+=======
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a

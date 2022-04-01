@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import TransactionForm from "../components/newTransaction";
+=======
+import React from "react";
+
+import "../App.css";
+
+import TransactionForm from "../components/Transactions/newTransaction";
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 import { Transaction } from "../redux-store/transaction";
 import { useCallback, useEffect, useState } from "react";
-import TransactionList from "../components/transactionList";
+import TransactionList from "../components/Transactions/transactionList";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
@@ -26,6 +34,17 @@ const defaultTransaction: Transaction = {
 };
 
 const Main = () => {
+<<<<<<< HEAD
+=======
+  const defaultTransaction: Transaction = {
+    id: 0,
+    name: "",
+    type: "",
+    amount: 0,
+    category: "",
+  };
+
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
   const [transaction, setTransaction] =
     useState<Transaction>(defaultTransaction);
 
@@ -142,6 +161,18 @@ const Main = () => {
   const expenseList = transactionsList?.filter(function (transaction) {
     return transaction.type === "expense";
   });
+<<<<<<< HEAD
+=======
+
+  const income = incomeList.reduce(function (acc, transaction) {
+    return acc + Number(transaction.amount);
+  }, 0);
+  const expense = expenseList.reduce(function (acc, transaction) {
+    return acc + Number(transaction.amount);
+  }, 0);
+
+  const balance = income - expense;
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 
   const income = incomeList?.reduce(function (acc, transaction) {
     return acc + Number(transaction.amount);
@@ -171,6 +202,7 @@ const Main = () => {
   return (
     <>
       <div className="App">
+<<<<<<< HEAD
         <div className="d-flex flex-row justify-content-start">
         <Change />
         </div>
@@ -182,6 +214,10 @@ const Main = () => {
             <h2>Expense: {exchange(currency.name, expense)}</h2>
           </div>
 
+=======
+        <div>
+          <h2 className="balance">Current Balance: {balance} </h2>
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
           <TransactionForm
             transactionDetails={transaction}
             callBackTransaction={saveTransactionDetails}

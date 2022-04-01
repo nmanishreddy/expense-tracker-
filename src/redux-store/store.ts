@@ -5,7 +5,11 @@ import rootReducer from "./rootReducer"
 
 
 
+<<<<<<< HEAD
 const store:any = createStore(rootReducer, applyMiddleware(thunk))
+=======
+const store  = createStore(categoryReducer, applyMiddleware(thunk))
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 
  export const persistor = persistStore(store)
 

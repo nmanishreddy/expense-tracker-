@@ -1,9 +1,23 @@
-import {Category} from './transaction'
+import { Category } from "./transaction";
 import { CategoryAction, Categorystate } from "../types/types";
 import * as actionType from "./actiontypes";
 
 const initialTransactions: Categorystate = {
+  categories: [
+    {
+      id: 1,
+      name: "Groceries",
+      type: "expense",
+    },
+    {
+      id: 2,
+      name: "Fiver",
+      type: "income",
+    },
+  ],
+};
 
+<<<<<<< HEAD
     categories : [
         {
             id:1,
@@ -85,6 +99,27 @@ const categoryReducer = (state: Categorystate = initialTransactions, action: Cat
 
     return state;
 }
+=======
+const categoryReducer = (
+  state: Categorystate = initialTransactions,
+  action: CategoryAction
+): Categorystate => {
+  switch (action.type) {
+    case actionType.ADD_CATEGORY:
+      const newCategory: Category = {
+        id: Math.random(),
+        name: action?.category.name,
+        type: action?.category.type,
+      };
+      return {
+        ...state,
+        categories: state.categories.concat(newCategory),
+      };
+  }
+
+  return state;
+};
+>>>>>>> c4ae6a447c171f9fee4ffbbda8bf5f4505f56f5a
 
 export default categoryReducer;
 
