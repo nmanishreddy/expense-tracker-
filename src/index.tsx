@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.scss';
 import App from './App';
 import {Provider} from 'react-redux';
-import store from './redux-store/store'
+import store, { persistor } from './redux-store/store'
 // import {  persistor } from  './redux-store/store'
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -12,9 +12,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 ReactDOM.render(
   
     <Provider store={store}>
-      {/* <PersistGate persistor={persistor}> */}
+      <PersistGate persistor={persistor}>
       <App />
-      {/* </PersistGate> */}
+      </PersistGate>
       
       </Provider>
     

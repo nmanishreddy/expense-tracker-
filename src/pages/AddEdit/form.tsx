@@ -1,13 +1,13 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import "./newTransaction.css";
+// import "./newTransaction.css";
 import { toast } from "react-toastify";
 import {
   Transaction,
   transactionType,
   Category,
-} from "../redux-store/transaction";
+} from "../../redux-store/transaction";
 
 type Props = {
   transactionDetails: Transaction;
@@ -20,7 +20,7 @@ const options = [
   { value: "EUR", label: "EUR" }
 ];
 
-const TransactionForm = (props: Props) => {
+const UpdateForm = (props: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [enteredAmountTouched, setEnteredAmountTouched] = useState(false);
@@ -297,4 +297,4 @@ const TransactionForm = (props: Props) => {
 //   );
 // };
 
-export default TransactionForm;
+export default UpdateForm;

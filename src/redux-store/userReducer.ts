@@ -31,7 +31,36 @@ const initialTransactions: TransactionState = {
             type: 'expense',
            amount: 500,
            category: 'category3'
+        },
+        {
+            id: 5,
+            name: "Mobile Recharge",
+            type: 'expense',
+           amount: 500,
+           category: 'category3'
+        },
+        {
+            id: 6,
+            name: "Groceries",
+            type: 'expense',
+           amount: 500,
+           category: 'category3'
+        },
+        {
+            id: 7,
+            name: "YouTube Videos",
+            type: 'income',
+           amount: 500,
+           category: 'category3'
+        },
+        {
+            id: 8,
+            name: "uber Eats",
+            type: 'income',
+           amount: 500,
+           category: 'category3'
         }
+        
     ]
 }
 

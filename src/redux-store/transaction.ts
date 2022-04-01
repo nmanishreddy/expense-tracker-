@@ -12,6 +12,7 @@ export interface Category {
     name: string
     type: string 
 }
+
     
 export const transactionType = [
     {type:'select' , id:'0'},
@@ -33,15 +34,19 @@ export const transactionCategory = [
     {category: "category10", id: '10',type:'expense'}
 ]
 
-export const  expenseCategory= [
-    {category: "category6", id: '1'},
-    {category: "category7", id: '2'},
-    {category: "category8", id: '3'},
-    {category: "category9", id: '4'},
-    {category: "category10", id: '5'}
-]
 
-// type SortKeys = keyof  Transaction 
-// type SortOrder = 'ascn' | 'desc'
-// const [sortKey, setSortKey] = useState<SortKeys>('id')
-  // const [sortOrder, setSortorder] = useState<SortOrder>('ascn')
+
+//-----Currency------
+
+
+export interface Currency {
+    id: string 
+    name: string
+}
+
+export const CurrencyTypes =[
+    {type:'rupee', id:'rupee'},
+    {type:'usd', id:'usd'},
+    {type:'pound', id:'pound'},
+    {type:'cad', id:'cad'},
+]

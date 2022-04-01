@@ -1,57 +1,63 @@
-
-
-
-import { BrowserRouter , Routes, Route, Link} from 'react-router-dom'
-import { Category, Transaction } from "./redux-store/transaction";
-import { shallowEqual,useSelector } from "react-redux";
-import { TransactionState , Categorystate} from "./types/types";
-import { useState } from 'react';
-
-import Main from './pages/Main'
-import React from 'react'
-import Headerr from './pages/header'
-import History from './pages/history'
-import NewCategory from './pages/Categories/newCategories';
-import Categories from './pages/Categories/categories';
-
-// import { IconName } from "react-icons/bi";  BiEditAlt BiEdit
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Transaction } from "./redux-store/transaction";
+import { shallowEqual, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import Main from "./pages/Main";
+import React from "react";
+import Header1 from "./pages/Header/header1";
+import History from "./pages/History/history";
+import Categories from "./pages/categories";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddEdit from "./pages/AddEdit/AddEdit";
+import View from "./pages/AddEdit/view";
+import Change from "./pages/Currency/changeCurrency";
 
 const Header: React.FC = (props) => {
-
   const transactionsListArray: Transaction[] = useSelector(
-    (state: TransactionState) => state.transactions,
+    (state: any) => state.user.transactions,
     shallowEqual
   );
-  
+
   const [transactionsList, setTransactionsList] = useState<Transaction[]>(
     transactionsListArray
   );
+  useEffect(() => {
+    setTransactionsList(transactionsListArray);
+  }, [transactionsListArray]);
 
-  const categoriesListarray: Category[] = useSelector( (state: Categorystate) => state.categories, shallowEqual)
-  const [categoriesList, setCategoriesList] = useState<Category[]>(categoriesListarray)
+  // const categoriesListarray: Category[] = useSelector(
+  //   (state: Categorystate) => state.categories,
+  //   shallowEqual
+  // );
+  // const [categoriesList, setCategoriesList] =
+  //   useState<Category[]>(categoriesListarray);
 
-  return(
+  // const [currency, setCurrency] = useState("usd");
+  // const value = { currency, setCurrency };
+
+  return (
     <div>
-         <Headerr/>
-    
-    <BrowserRouter>
+      <BrowserRouter>
+        <Header1 />
+        <ToastContainer position="top-center" />
         <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/History' element={<History transactionList={transactionsList}/>}/>
-        <Route path='/AddNewCategories' element={<Categories />}/>
-        </Routes> 
-
-        
-    </BrowserRouter>
+          <Route path="/" element={<Main />} />
+          <Route
+            path="/History"
+            element={<History transactionList={transactionsList} />}
+          />
+          <Route path="/AddNewCategories" element={<Categories />} />
+          <Route path={`/AddEdit/:id`} element={<AddEdit />} />
+          <Route path={`/View/:id`} element={<View />} />
+          <Route path="/curr" element={<Change />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-    
-
-  )
-}
+  );
+};
 
 export default Header;
-
-
 
 // const Header: React.FC = () => {
 //   return (
@@ -87,14 +93,11 @@ export default Header;
 //             </ul>
 //           </div>
 //         </nav>
-       
-        
+
 //         <Route path="/" component={Main} exact />
 //         <Route path="/History" component={Main}/>
 //         <Route path="/AddNew" component={Main}/>
-        
-        
-        
+
 //       </Router>
 //     </div>
 //   )

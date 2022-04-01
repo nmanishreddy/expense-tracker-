@@ -1,6 +1,6 @@
-import {Transaction } from '../redux-store/transaction'
+import {Transaction, Category, Currency } from '../redux-store/transaction'
 
-import {Category} from '../redux-store/transaction'
+
 
 type TransactionState = {
     transactions: Transaction[]
@@ -25,3 +25,16 @@ type CategoryAction = {
 }
 
 type DispatchCategorytype = (args: CategoryAction) => CategoryAction
+
+//-----Currency-------
+
+type CurrencyState = {
+    currency: Currency
+}
+
+type CurrencyAction = {
+    type: string 
+    currency: Currency
+}
+
+type DispatchCurrencyType = (args: CurrencyAction) => CurrencyAction
